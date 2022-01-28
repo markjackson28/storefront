@@ -1,10 +1,12 @@
-import { Container } from 'react-bootstrap';
+import Categories from '../SubComponents/Categories/Categories';
+import Products from '../SubComponents/Products/Product';
 
 const Main = () => {
   return (
-      <Container fluid>
-        Main Content
-      </Container>
+    <>
+      <Categories />
+      <Products />
+    </>
   );
 };
 

@@ -1,19 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  setCategoryList,
+  setCategory,
   selectCategory
 } from '../../../Store/categorySlice';
 
 let Categories = () => {
+  // This is selecting state from slice
   const categories = useSelector(selectCategory);
-  // console.log('**', categories && categories.categories.map(cat => console.log(cat)));
-  // const dispatch = useDispatch();
+  // console.log('**', categories.activeCategory);
+  const dispatch = useDispatch();
   return (
     <div>
       <>
         {categories && categories.categories.map((cat) => (
-          <p key={cat._id}>{cat.name}</p>
+          <button 
+          key={cat._id}
+          onClick={() => {
+            dispatch(setCategory(cat))
+          }}
+          >{cat.name}</button>
         ))}
+      </>
+      <>
+        {categories && categories.activeCategory.name}  
       </>
     </div>
   )
