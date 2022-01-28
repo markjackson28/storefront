@@ -7,4 +7,8 @@ export const store = configureStore({
     counter: counterReducer,
     category: categoryReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware({
+    serializableCheck: false
+  }),
 });

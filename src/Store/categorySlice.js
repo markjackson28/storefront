@@ -18,23 +18,20 @@ let gamingMice = {
   description: 'Gaming mouse'
 }
 
-const intitialState = {
-  // categories: [gamingHeadsets, gamingKeyboards, gamingMice]
-  categories: [],
+const initialState = {
+  categories: [gamingMice, gamingKeyboards, gamingHeadsets]
 }
 
-console.log('state', intitialState);
-
 export const categorySlice = createSlice({
-  name: 'categories',
-  intitialState,
+  name: 'category',
+  initialState,
   reducers: {
     setCategoryList: (state, action) => {
-      state.categories.push('Push Added')
+      state.categories = [...state.categories, action.payload]
     }
   },
 });
 
 export const { setCategoryList } = categorySlice.actions;
-export const selectCategory = (state) => state.categories;
+export const selectCategory = (state) => state.category;
 export default categorySlice.reducer;

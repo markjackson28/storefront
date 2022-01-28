@@ -6,20 +6,15 @@ import {
 
 let Categories = () => {
   const categories = useSelector(selectCategory);
-  console.log(categories);
-  const dispatch = useDispatch();
-  // console.log(categories);
+  // console.log('**', categories && categories.categories.map(cat => console.log(cat)));
+  // const dispatch = useDispatch();
   return (
     <div>
-      <p>Test</p>
-      {categories && categories.categories.map(category => (
-        <button
-        key={category._id}
-        onClick={dispatch(setCategoryList(category.name))}
-        >
-        <p>{category.name}</p>
-        </button>
-      ))}
+      <>
+        {categories && categories.categories.map((cat) => (
+          <p key={cat._id}>{cat.name}</p>
+        ))}
+      </>
     </div>
   )
 }
