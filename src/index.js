@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import { store } from './Store/store';
 import { Provider } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import CssBaseline from '@mui/material/CssBaseline';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <CssBaseline />
       <App />
     </Provider>
   </React.StrictMode>,
