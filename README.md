@@ -8,6 +8,9 @@
 
 > An e-Commerce storefront using React with Redux.
 
+## Deployed GitHub Page
+[Apex Electronics](https://markjackson28.github.io/storefront/)
+
 ## Install
 
 ```sh
