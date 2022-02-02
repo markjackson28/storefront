@@ -4,6 +4,10 @@ import {
   setProduct,
   selectCategory
 } from '../../../Store/categorySlice';
+import { 
+  setCart, 
+  selectCart 
+} from '../../../Store/cartSlice'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
@@ -27,11 +31,12 @@ const style = {
 let Products = () => {
   // This is selecting state from slice
   const categories = useSelector(selectCategory);
+  const cart = useSelector(selectCart);
   // console.log('**', categories.activeProduct && categories.activeProduct.name);
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => { setOpen(true) };
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
@@ -48,6 +53,11 @@ let Products = () => {
                 Stock: {prod.stock}
               </Typography>
             </CardContent>
+            <CardActions button onClick={() => { 
+              dispatch(setCart(prod));
+               }}>
+              <Button size="small">Add to Cart</Button>
+            </CardActions>
             <CardActions button onClick={() => { 
               handleOpen(); 
               dispatch(setProduct(prod));
