@@ -11,9 +11,6 @@ import Menu from "@mui/material/Menu";
 
 const Header = () => {
   const cart = useSelector(selectCart);
-  console.log('cart', cart.cart.map(item => (
-    { item }
-  )))
   // const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
 

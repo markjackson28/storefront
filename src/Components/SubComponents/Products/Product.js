@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setProduct,
-  selectCategory
+  selectCategory,
+  setStockQuantity,
 } from '../../../Store/categorySlice';
 import { 
   setCart, 
@@ -31,7 +32,7 @@ const style = {
 let Products = () => {
   // This is selecting state from slice
   const categories = useSelector(selectCategory);
-  const cart = useSelector(selectCart);
+  // const cart = useSelector(selectCart);
   // console.log('**', categories.activeProduct && categories.activeProduct.name);
   const dispatch = useDispatch();
 
@@ -53,8 +54,9 @@ let Products = () => {
                 Stock: {prod.stock}
               </Typography>
             </CardContent>
-            <CardActions button onClick={() => { 
+            <CardActions button onClick={() => {
               dispatch(setCart(prod));
+              dispatch(setStockQuantity({category: prod._category, name: prod.name}))
                }}>
               <Button size="small">Add to Cart</Button>
             </CardActions>

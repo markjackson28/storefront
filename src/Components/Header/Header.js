@@ -11,7 +11,7 @@ const Header = () => {
         <Toolbar>
           <Typography
             variant="h5"
-            noWrap
+            // noWrap
             component="div"
             sx={{ mr: 0, display: { xs: "none", md: "flex", flexGrow: 1 } }}
           >

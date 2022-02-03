@@ -1,11 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 
 // Products
-let headsetProducts = { 
+let headsetProducts = {
   products: [
     {
       _id: uuid(),
+      _category: 'headset',
       name: 'Steel Series: Arctis 9 Wireless',
       description: 'From the makers of the most award-winning headset line in gaming history, the Arctis 9 combines lossless low latency 2.4 GHz wireless with simultaneous Bluetooth audio for true wireless everywhere. With the noise-canceling ClearCast bidirectional microphone and stunningly detailed Arctis sound, the Arctis 9 is the premier all-day gaming headset.',
       stock: 10,
@@ -14,16 +15,18 @@ let headsetProducts = {
     {
       _id: uuid(),
       name: 'EPOS H6Pro',
+      _category: 'headset',
       description: 'With an open ear design for realistic in-game audio, the EPOS H6 Pro Open Back Headset creates an even more immersive gaming experience. Hear and be heard clearly without any distracting mic monitoring. This sebring black PC gaming headset provides the dynamic sound you need without compromising accuracy. The redesigned boom arm creates a sleek look and more varied placement options without compromising your voice pick-up experience. Streamers rejoice; the magnetic boom arm is conveniently detachable allowing you to use one dedicated microphone. Game for hours thanks to the game headset\'s two-axis ear cup hinges and cushioned headband for increased comfort.',
       stock: 13,
       price: '$179.99'
     }
   ]
 }
-let keyboardProducts = { 
+let keyboardProducts = {
   products: [
     {
       _id: uuid(),
+      _category: 'keyboard',
       name: 'SteelSeries Apex Pro TKL',
       description: 'The apex pro TKL mechanical keyboard solves the shortcomings of gaming keyboards thanks to Omni point mechanical switches, which are for 100 million keypresses. Each individual key can be tweaked to meet your desired actuation, from the world\'s fastest feather light touches, to deep and typo-free presses, and anything in between, allowing you to play more accurately, quickly, and confidently. An integrated OLED smart display with on-board storage is your integrated command center for on-the-fly info from your game, music, or discord, and provides software-free customization for tweaking and saving your settings. An unbreakable aluminum alloy frame makes it the ultimate keyboard for enthusiasts who do not want to settle.',
       stock: 14,
@@ -32,13 +35,14 @@ let keyboardProducts = {
     {
       _id: uuid(),
       name: 'Ducky One 2 Mini',
+      _category: 'keyboard',
       description: 'Featuring PBT double shot seamless keycaps with side laser engraving technique. Smaller size, but no functions sacrificed. Supports Ducky Macro V2.0 and Mouse control function. The new bezel design shares a similar sleek frame as it’s predecessor, but the One 2 Mini incorporates dual colors on the bezel to match all varieties of keycap colorways.',
       stock: 6,
       price: '$119.99'
     }
   ]
 }
-let miceProducts = { 
+let miceProducts = {
   products: [
     {
       _id: uuid(),
@@ -59,6 +63,7 @@ let miceProducts = {
 
 // Categories
 let gamingHeadsets = {
+  _category: 'headset',
   name: 'Headset',
   description: 'Gaming headsets',
   productList: headsetProducts
@@ -88,12 +93,22 @@ export const categorySlice = createSlice({
       state.activeCategory = action.payload;
     },
     setProduct: (state, action) => {
-      console.log('action', action)
       state.activeProduct = action.payload;
+    },
+    setStockQuantity: (state, action) => {
+      console.log(action);
+      console.log('***', state.activeCategory[1]);
+      const name = action.payload.name;
+      const cat = action.payload.category;
+      let target = null;
+      state.categories[cat].productList.forEach(product => {
+        target = product[name]
+      })
+      console.log('**', target);
     }
   },
 });
 
-export const { setCategory, setProduct } = categorySlice.actions;
+export const { setCategory, setProduct, setStockQuantity } = categorySlice.actions;
 export const selectCategory = (state) => state.category;
 export default categorySlice.reducer;
