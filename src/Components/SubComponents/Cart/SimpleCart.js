@@ -13,7 +13,6 @@ const Header = () => {
   const cart = useSelector(selectCart);
   // const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
 
   const handleProfileMenuOpen = (event) => {
@@ -41,7 +40,7 @@ const Header = () => {
       onClose={handleMenuClose}
     >
       {cart.cart.map((item) => {
-        return <MenuItem>{item}</MenuItem>;
+        return <MenuItem key={item}>{item}</MenuItem>;
       })}
     </Menu>
   );

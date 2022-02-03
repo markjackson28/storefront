@@ -97,14 +97,14 @@ export const categorySlice = createSlice({
     },
     setStockQuantity: (state, action) => {
       console.log(action);
-      console.log('***', state.activeCategory[1]);
-      const name = action.payload.name;
-      const cat = action.payload.category;
-      let target = null;
-      state.categories[cat].productList.forEach(product => {
-        target = product[name]
-      })
-      console.log('**', target);
+      // console.log('***', state.activeCategory[1]);
+      // const name = action.payload.name;
+      // const cat = action.payload.category;
+      // let target = null;
+      // state.categories[cat].productList.forEach(product => {
+      //   target = product[name]
+      // })
+      // console.log('**', target);
     }
   },
 });

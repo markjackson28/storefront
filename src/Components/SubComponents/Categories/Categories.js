@@ -43,7 +43,7 @@ let Categories = () => {
         <Divider />
         <List>
           {categories && categories.categories.map((cat) => (
-            <ListItem button onClick={() => { dispatch(setCategory(cat)) }} key={cat._id}>
+            <ListItem key={cat.name} button onClick={() => { dispatch(setCategory(cat)) }}>
               <ListItemText primary={cat.name} />
             </ListItem>
           ))}
@@ -59,7 +59,7 @@ let Categories = () => {
           </Typography>
         </Toolbar>
         <Divider />
-        <Typography paragraph sx={{ flexGrow: 1, bgcolor: 'background.default', p: 2 }}>
+        <Typography paragraph component="div" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 2 }}>
           <Products />
         </Typography>
       </Box>

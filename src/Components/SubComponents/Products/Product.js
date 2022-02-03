@@ -7,7 +7,7 @@ import {
 } from '../../../Store/categorySlice';
 import { 
   setCart, 
-  selectCart 
+  // selectCart 
 } from '../../../Store/cartSlice'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -43,7 +43,7 @@ let Products = () => {
   return (
     <>
       {categories.activeCategory.productList && categories.activeCategory.productList.products.map((prod) => (
-        <Box sx={{ p: 1 }}>
+        <Box key={prod.name} sx={{ p: 1 }}>
           <Card variant="outlined" sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography>
@@ -54,13 +54,13 @@ let Products = () => {
                 Stock: {prod.stock}
               </Typography>
             </CardContent>
-            <CardActions button onClick={() => {
+            <CardActions button={prod ? 1 : 0} onClick={() => {
               dispatch(setCart(prod));
               dispatch(setStockQuantity({category: prod._category, name: prod.name}))
                }}>
               <Button size="small">Add to Cart</Button>
             </CardActions>
-            <CardActions button onClick={() => { 
+            <CardActions button={prod ? 1 : 0} onClick={() => { 
               handleOpen(); 
               dispatch(setProduct(prod));
                }}>
@@ -69,7 +69,6 @@ let Products = () => {
           </Card>
         </Box>
       ))}
-      <div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -89,7 +88,6 @@ let Products = () => {
             </Typography>
           </Box>
         </Modal>
-      </div>
     </>
   )
 }
