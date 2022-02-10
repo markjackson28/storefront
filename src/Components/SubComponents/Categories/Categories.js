@@ -55,7 +55,7 @@ let Categories = () => {
       >
         <Toolbar sx={{ flexGrow: 1, bgcolor: 'background.default', pt: 8 }}>
           <Typography variant="h6" noWrap component="div">
-            {categories && categories.activeCategory.name}
+            {categories.activeCategory.name || 'All Products'}
           </Typography>
         </Toolbar>
         <Divider />

@@ -7,8 +7,8 @@ import {
 } from '../../../Store/categorySlice';
 import { 
   setCart, 
-  // selectCart 
 } from '../../../Store/cartSlice'
+import ApiProducts from '../ApiProducts/ApiProducts';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
@@ -88,6 +88,7 @@ let Products = () => {
             </Typography>
           </Box>
         </Modal>
+      <ApiProducts />
     </>
   )
 }

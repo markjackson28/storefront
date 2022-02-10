@@ -2,6 +2,7 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 
 // Importing modules for use
@@ -15,6 +16,7 @@ const logger = require('./middleware/logger');
 app.use(logger);
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 // Routes
 app.use(mainRoute);
