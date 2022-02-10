@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setProduct,
-  selectCategory
+  selectCategory,
+  setStockQuantity,
 } from '../../../Store/categorySlice';
+import { 
+  setCart, 
+  // selectCart 
+} from '../../../Store/cartSlice'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
@@ -27,17 +32,18 @@ const style = {
 let Products = () => {
   // This is selecting state from slice
   const categories = useSelector(selectCategory);
+  // const cart = useSelector(selectCart);
   // console.log('**', categories.activeProduct && categories.activeProduct.name);
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => { setOpen(true) };
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
       {categories.activeCategory.productList && categories.activeCategory.productList.products.map((prod) => (
-        <Box sx={{ p: 1 }}>
+        <Box key={prod.name} sx={{ p: 1 }}>
           <Card variant="outlined" sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography>
@@ -48,7 +54,13 @@ let Products = () => {
                 Stock: {prod.stock}
               </Typography>
             </CardContent>
-            <CardActions button onClick={() => { 
+            <CardActions button={prod ? 1 : 0} onClick={() => {
+              dispatch(setCart(prod));
+              dispatch(setStockQuantity({category: prod._category, name: prod.name}))
+               }}>
+              <Button size="small">Add to Cart</Button>
+            </CardActions>
+            <CardActions button={prod ? 1 : 0} onClick={() => { 
               handleOpen(); 
               dispatch(setProduct(prod));
                }}>
@@ -57,7 +69,6 @@ let Products = () => {
           </Card>
         </Box>
       ))}
-      <div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -77,7 +88,6 @@ let Products = () => {
             </Typography>
           </Box>
         </Modal>
-      </div>
     </>
   )
 }
