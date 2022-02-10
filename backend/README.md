@@ -1,54 +1,55 @@
-# api-server
+<h1 align="center">Welcome to Store Front Backend👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-## Current LAB - 04
+> An backend e-Commerce storefront using React with Redux.
 
-## Data Modeling
+<!-- ## Deployed GitHub Page
+[Apex Electronics](https://markjackson28.github.io/storefront/) -->
 
-Today’s lab adds no new requirements to the API server. Our goal today is to swap out the route handler functions in favor of a Collection Interface which will consume a Sequelize Model and perform generic Database CRUD operations. You should consider this a “refactor” of your previous assignment, but treat this as a new build – do not simply copy your previous files and start working. Rebuild the server, re-asserting your knowledge of how it works, how it’s architected, and how to operate it.
+## Install
 
-### Author: Mark Thanadabouth
+```sh
+npm install
+```
 
-### Collaborators: Alex W(Instructor), Heather B, Charlie F, Jeremy B,
+## Usage
 
-#### Links and Resources
-* [Deployed Link (devBranch)](https://markt-basic-api-server-dev.herokuapp.com/)
-* [Deployed Link (mainBranch)](https://mt-basic-api-server-prod.herokuapp.com/)
+```sh
+npm run start || dev
+```
 
-### Setup
+<!-- ## Run tests
 
-#### `.env` requirements
-- `PORT` - Port Number
+```sh
+npm run test
+``` -->
 
-#### Running App
-- `npm start` or `npx nodemon`
+## Author
 
-Endpoints:
-- `/`
-> Hello Main Server
-- `/pet`
-> Returns 'pet' object
-- `/apexlegend`
-> Returns 'apex character' object
+👤 **Mark Thanadabouth**
 
-#### Tests
-- `npm test`
+## Collaborators
 
+👤 **Lorenzo Ortega**
 
-### UML
-<!-- > <img src="401lab03_UML.jpg" width="300"/> -->
-![Lab04 UML](401lab04_UML.jpg)
+<!-- ## UML
 
-### Reflections and Comments
-* Start date (10/06)
+![uml](./assets/uml.jpg) -->
 
-### LAB - 04
+### Resources
 
-Name of feature: Phase 3
+- [How to deploy to gh-pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Fetching data from an API using thunks [createAsyncThunk] - redux toolkit](https://www.youtube.com/watch?v=xtD4YMKWI7w)
 
-Estimate of time needed to complete: 8 Hours
+## Show your support
 
-Start time: 4pm(10/06)
+Give a ⭐️ if this project helped you!
 
-Finish time: 5pm(10/07)
-
-Actual time needed to complete: 5 hours
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

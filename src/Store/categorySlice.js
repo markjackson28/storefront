@@ -87,6 +87,7 @@ const initialState = {
   categories: [gamingMice, gamingKeyboards, gamingHeadsets],
   activeCategory: [] || null,
   activeProduct: [] || null,
+  apiCallTest: []
 }
 
 export const categorySlice = createSlice({
