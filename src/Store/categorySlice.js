@@ -46,6 +46,7 @@ let miceProducts = {
   products: [
     {
       _id: uuid(),
+      _category: 'mouse',
       name: 'Finalmouse Air58 Ninja',
       description: 'With Handmade Haiku Scrolls. Air and Art. Beautiful, like an ocean breeze flowing under your hand. 58 grams, should we say more? Words can\'t explain, must experience. It feels like air, in your hand. It makes the Ultralight feel heavy. It is the Air58. Hand painted and engraved Individualized Haiku Scrolls on every mouse. Beautiful Haikus from ancient masters. Some rare, some more common, your Haiku is unique to you. Find them all to uncover the treasure. The path will take you out into nature. Phantomcord is there also, to let the Air be free.',
       stock: 2,
@@ -53,6 +54,7 @@ let miceProducts = {
     },
     {
       _id: uuid(),
+      _category: 'mouse',
       name: 'Logitech G Pro Wireless',
       description: 'Designed over two years with direct input from many professional esports players, Logitech G PRO Wireless Gaming Mouse is built to the exacting standards of some of the world\'s top esports professionals. PRO Wireless gaming mouse is purpose built for extreme performance and includes the latest and most advanced technologies available. Featuring Lightspeed technology, PRO Wireless overcomes the limitations of latency, connectivity and power to provide rock solid and super-fast 1 mms report rate connection. PRO Wireless gaming mouse is also equipped with the next generation version of the HERO sensor. HERO 16K is the highest performing and most power efficient gaming sensor that Logitech has ever made for pixel precise targeting in fps and mob games. An incredibly lightweight endoskeleton and ergonomic design improve maneuverability and comfort while removable side buttons and programmable LIGHTSYNC RGB lighting give you the ultimate in mouse customization.',
       stock: 4,
@@ -69,11 +71,13 @@ let gamingHeadsets = {
   productList: headsetProducts
 }
 let gamingKeyboards = {
+  _category: 'keyboard',
   name: 'Keyboard',
   description: 'Gaming keyboard',
   productList: keyboardProducts
 }
 let gamingMice = {
+  _category: 'mouse',
   name: 'Mouse',
   description: 'Gaming mouse',
   productList: miceProducts
@@ -96,15 +100,22 @@ export const categorySlice = createSlice({
       state.activeProduct = action.payload;
     },
     setStockQuantity: (state, action) => {
-      console.log(action);
-      // console.log('***', state.activeCategory[1]);
-      // const name = action.payload.name;
-      // const cat = action.payload.category;
-      // let target = null;
-      // state.categories[cat].productList.forEach(product => {
-      //   target = product[name]
-      // })
-      // console.log('**', target);
+      // For main category
+      state.categories.forEach(cat => {
+        if (action.payload.category === cat._category) {
+          cat.productList.products.forEach(item => {
+            if (action.payload.name === item.name) {
+              item.stock--;
+            }
+          })
+        }
+      });
+      // For active category
+      state.activeCategory.productList.products.forEach(item => {
+        if (action.payload.name === item.name) {
+          item.stock--;
+        }
+      });
     }
   },
 });
