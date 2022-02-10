@@ -66,6 +66,7 @@ In phase 2, we will be adding the “Add to Cart” feature to our application, 
 
 - [How to deploy to gh-pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Fetching data from an API using thunks [createAsyncThunk] - redux toolkit](https://www.youtube.com/watch?v=xtD4YMKWI7w)
 
 ## Show your support
 

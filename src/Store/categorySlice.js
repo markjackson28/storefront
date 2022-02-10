@@ -36,7 +36,7 @@ let keyboardProducts = {
       _id: uuid(),
       name: 'Ducky One 2 Mini',
       _category: 'keyboard',
-      description: 'Featuring PBT double shot seamless keycaps with side laser engraving technique. Smaller size, but no functions sacrificed. Supports Ducky Macro V2.0 and Mouse control function. The new bezel design shares a similar sleek frame as it’s predecessor, but the One 2 Mini incorporates dual colors on the bezel to match all varieties of keycap colorways.',
+      description: 'Featuring PBT double shot seamless keycaps with side laser engraving technique. Smaller size, but no functions sacrificed. Supports Ducky Macro V2.0 and Mouse control function. The new bezel design shares a similar sleek frame as it\'s predecessor, but the One 2 Mini incorporates dual colors on the bezel to match all varieties of keycap colorways.',
       stock: 6,
       price: '$119.99'
     }
